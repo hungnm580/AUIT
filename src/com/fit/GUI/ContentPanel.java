@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -69,6 +72,37 @@ public class ContentPanel extends JPanel{
 		
 		this.setBorder(new EmptyBorder(10,  10, 10,  10));
 		
+		jFileChooser = new JFileChooser(new File("/"));
+		setEventChooseFolder();
+		jFileChooser.setFileSelectionMode( JFileChooser.DIRECTORIES_ONLY);
 //		this.setMinimumSize(new Dimension(400, 300));
+	}
+	
+	public void setEventChooseFolder(){
+		btnFile.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				int returnVal = jFileChooser.showOpenDialog(ContentPanel.this);
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					File file = jFileChooser.getSelectedFile();
+					String result = file.getPath();
+					System.out.println(result);
+				} else{
+					//cancel by user
+					
+				}
+				
+				try{
+	        		//processing here
+					
+					
+					
+	        	}catch (Exception ex) {
+					// TODO: handle exception
+				}
+			}
+		});
 	}
 }
