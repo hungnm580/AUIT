@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import com.fit.Automata.State;
 
+/**
+ * A test path is represent by a list of States
+ * @author Hung
+ *
+ */
 public class TestPath {
 	private ArrayList<State> listStates;
 	
